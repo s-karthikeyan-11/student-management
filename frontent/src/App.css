@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+}
+
+#root {
+    min-height: 100vh;
+}
+
+.student-form,
+.student-list {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.student-form h2,
+.student-list h2 {
+    margin-bottom: 20px;
+}
+
+.student-form input,
+.student-form textarea {
+    padding: 11px;
+    margin: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.student-form textarea {
+    resize: vertical;
+    min-height: 42px;
+}
+
+.add-btn {
+    padding: 11px 18px;
+    margin: 6px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background: #1d4ed8;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 11px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.student-table th,
+.student-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.student-table th {
+    background: #f1f5f9;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 7px 12px;
+    margin-right: 6px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background: #f59e0b;
+    color: white;
+}
+
+.delete-btn {
+    background: #ef4444;
+    color: white;
+}
+
+@media (max-width: 700px) {
+    .student-form,
+    .student-list {
+        margin: 15px;
+        padding: 15px;
+    }
+
+    .student-form input,
+    .student-form textarea {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 5px 0;
+    }
+
+    .student-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
