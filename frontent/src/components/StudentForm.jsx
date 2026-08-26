@@ -34,7 +34,9 @@ function StudentForm({ editStudent, onUpdated }) {
       !student.reg_no ||
       !student.email ||
       !student.address
-    ) {
+    ) 
+    
+    {
       alert("Please fill in all fields");
       return;
     }
@@ -49,6 +51,7 @@ function StudentForm({ editStudent, onUpdated }) {
         const response = editStudent
           ? await API.put(`/students/${editStudent._id}`, student)
           : await API.post('/students', student);
+          console.log("student added/updated:", response.data.message);
         alert(response.data.message);
         if (onUpdated) {
           onUpdated();
@@ -62,6 +65,14 @@ function StudentForm({ editStudent, onUpdated }) {
         });
       } catch (error) {
         alert(error.response?.data?.message || "Something went wrong");
+      }
+    };
+    const handleConsole=async()=>{
+      try {
+        const response = await API.get('/students');
+        console.log("Fetched students:", response.data);
+      } catch (error) {
+        console.error("Error fetching students:", error);
       }
     };
 
@@ -100,6 +111,9 @@ function StudentForm({ editStudent, onUpdated }) {
         <button className="add-btn" type="button"
         onClick={handleSubmit}>
           {editStudent ? "Update Student" : "Add Student"}
+        </button>
+        <button className="console-btn" type="button" onClick={handleConsole}>
+          Console Log Students
         </button>
       </div>
 

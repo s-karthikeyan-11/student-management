@@ -36,7 +36,9 @@ const addStudent = async (req, res) => {
         res.status(201).json({
             message: "Student added successfully",
             studentId: student._id
+           
         });
+
 
     } catch (error) {
         console.error(error);
