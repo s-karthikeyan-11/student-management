@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
 
-function StudentList({ onEdit, refresh }) {
+function StudentList({ onEdit }) {
     const [students, setStudents] = useState([]);
     const [search, setSearch] = useState("");
 
@@ -16,7 +16,12 @@ function StudentList({ onEdit, refresh }) {
 
     useEffect(() => {
         fetchStudents();
-    }, [refresh]);
+        window.addEventListener("studentUpdated", fetchStudents);
+
+        return () => {
+            window.removeEventListener("studentUpdated", fetchStudents);
+        };
+    }, []);
 
     const handleDelete = async (id) => {
 
