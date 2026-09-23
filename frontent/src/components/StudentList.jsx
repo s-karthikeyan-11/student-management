@@ -8,6 +8,7 @@ function StudentList({ onEdit }) {
     const fetchStudents = async () => {
         try {
             const response = await API.get("/students");
+            console.log("Fetched students:", response.data);
             setStudents(response.data);
         } catch (error) {
             console.error("Error fetching students:", error);
@@ -17,10 +18,9 @@ function StudentList({ onEdit }) {
     useEffect(() => {
         fetchStudents();
         window.addEventListener("studentUpdated", fetchStudents);
-
         return () => {
-            window.removeEventListener("studentUpdated", fetchStudents);
-        };
+        window.removeEventListener("studentUpdated", fetchStudents);
+        }
     }, []);
 
     const handleDelete = async (id) => {
