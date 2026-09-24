@@ -6,7 +6,6 @@ function App() {
 
   const [editStudent, setEditStudent] = useState(null);
 
-  // console.log(editStudent);
 
   const handleUpdate = () => {
     setEditStudent(null);

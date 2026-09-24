@@ -53,9 +53,10 @@ function StudentList({ onEdit }) {
             student.reg_no.toLowerCase().includes(search.toLowerCase()) ||
             student.email.toLowerCase().includes(search.toLowerCase()) ||
             student.address.toLowerCase().includes(search.toLowerCase())
+            
         )
     });
-
+     
     return (
         <div className="student-list">
             <h2>Student List</h2>
